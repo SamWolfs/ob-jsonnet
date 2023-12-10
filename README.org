@@ -2,10 +2,10 @@
 
 ** Introduction
 
-  ~ob-jsonet~ enables [[http://orgmode.org/worg/org-contrib/babel/intro.html][Org-Babel]] support for evaluating [[https://jsonnet.org/][jsonnet]] code.
+  ~ob-jsonnet~ enables [[http://orgmode.org/worg/org-contrib/babel/intro.html][Org-Babel]] support for evaluating [[https://jsonnet.org/][jsonnet]] code.
   The code is run using the ~jsonnet~ command. Libraries can be loaded
   by setting the ~JSONNET_PATH~ or by providing the ~:jpaths~ option
-  to the codeblock.
+  to the code block.
 
   : #+begin_src jsonnet :jpaths "path/to/libsonnet"
   :   {
@@ -20,12 +20,12 @@
 
 ** Language Specific Header Arguments
 
-  In addition to the normal header arguments for Babel, below are some some
+  In addition to the normal header arguments for Babel, below are some
   headers specific to jsonnet.
 
   - ~:jpaths~ :: Relative or absolute paths to jsonnet libraries. Can be defined
                  as a string for a single path or a list of strings for multiple paths.
-  - ~:var~ :: `ob-jsonnet' also supports Babel variables. Variables are passed using
+  - ~:var~ :: ~ob-jsonnet~ also supports Babel variables. Variables are passed using
               the ~-V~ command line option.
 
 ** Examples
@@ -40,7 +40,7 @@
 
    : #+begin_src jsonnet :var target="World"
    :   {
-   :     message: "Hello %s" % [std.extVar("hello")],
+   :     message: "Hello %s" % [std.extVar("target")],
    :   }
    : #+end_src
    :
